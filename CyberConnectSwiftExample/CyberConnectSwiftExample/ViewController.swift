@@ -6,10 +6,63 @@
 //
 
 import UIKit
+import WalletConnectSwift
 
 class ViewController: UIViewController {
+    var walletConnect: WalletConnect!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        walletConnect = WalletConnect(delegate: self)
+        walletConnect.reconnectIfNeeded()
+    }
+    
+    @IBAction func button1Clicked(_ sender: Any) {
+        let connectionUrl = walletConnect.connect()
+        let deepLinkUrl = "wc://wc?uri=\(connectionUrl)"
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            if let url = URL(string: deepLinkUrl), UIApplication.shared.canOpenURL(url) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
 }
 
+extension ViewController: WalletConnectDelegate {
+    func failedToConnect() {
+        onMainThread { [unowned self] in
+            UIAlertController.showFailedToConnect(from: self)
+        }
+    }
+
+    func didConnect() {
+        
+    }
+
+    func didDisconnect() {
+        onMainThread { [unowned self] in
+            if let presented = self.presentedViewController {
+                presented.dismiss(animated: false)
+            }
+            UIAlertController.showDisconnected(from: self)
+        }
+    }
+}
+
+extension UIAlertController {
+    func withCloseButton() -> UIAlertController {
+        addAction(UIAlertAction(title: "Close", style: .cancel))
+        return self
+    }
+
+    static func showFailedToConnect(from controller: UIViewController) {
+        let alert = UIAlertController(title: "Failed to connect", message: nil, preferredStyle: .alert)
+        controller.present(alert.withCloseButton(), animated: true)
+    }
+
+    static func showDisconnected(from controller: UIViewController) {
+        let alert = UIAlertController(title: "Did disconnect", message: nil, preferredStyle: .alert)
+        controller.present(alert.withCloseButton(), animated: true)
+    }
+}

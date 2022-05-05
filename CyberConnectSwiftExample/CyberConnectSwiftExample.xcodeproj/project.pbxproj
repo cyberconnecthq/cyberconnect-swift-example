@@ -18,6 +18,11 @@
 		37A865512820E5020097751C /* CyberConnectSwiftExampleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A865502820E5020097751C /* CyberConnectSwiftExampleUITestsLaunchTests.swift */; };
 		37A8655F2820E54F0097751C /* CyberConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8655E2820E54F0097751C /* CyberConnect.swift */; };
 		37A865602820E54F0097751C /* CyberConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8655E2820E54F0097751C /* CyberConnect.swift */; };
+		37A865622820EDD50097751C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A865612820EDD50097751C /* Utils.swift */; };
+		37A865632820EDD50097751C /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A865612820EDD50097751C /* Utils.swift */; };
+		37F65AA52823B35400AD8C63 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37F65AA42823B35400AD8C63 /* WalletConnectSwift */; };
+		37F65AA82823B6AD00AD8C63 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F65AA72823B6AD00AD8C63 /* WalletConnect.swift */; };
+		37F65AA92823B6AD00AD8C63 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F65AA72823B6AD00AD8C63 /* WalletConnect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,8 @@
 		37A8654E2820E5020097751C /* CyberConnectSwiftExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberConnectSwiftExampleUITests.swift; sourceTree = "<group>"; };
 		37A865502820E5020097751C /* CyberConnectSwiftExampleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberConnectSwiftExampleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		37A8655E2820E54F0097751C /* CyberConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CyberConnect.swift; sourceTree = "<group>"; };
+		37A865612820EDD50097751C /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		37F65AA72823B6AD00AD8C63 /* WalletConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletConnect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37F65AA52823B35400AD8C63 /* WalletConnectSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +110,7 @@
 		37A8652C2820E4FF0097751C /* CyberConnectSwiftExample */ = {
 			isa = PBXGroup;
 			children = (
+				37F65AA62823B68C00AD8C63 /* WalletConnectExtension */,
 				37A8655D2820E5340097751C /* CyberConnect */,
 				37A8652D2820E4FF0097751C /* AppDelegate.swift */,
 				37A8652F2820E4FF0097751C /* SceneDelegate.swift */,
@@ -135,8 +144,17 @@
 			isa = PBXGroup;
 			children = (
 				37A8655E2820E54F0097751C /* CyberConnect.swift */,
+				37A865612820EDD50097751C /* Utils.swift */,
 			);
 			path = CyberConnect;
+			sourceTree = "<group>";
+		};
+		37F65AA62823B68C00AD8C63 /* WalletConnectExtension */ = {
+			isa = PBXGroup;
+			children = (
+				37F65AA72823B6AD00AD8C63 /* WalletConnect.swift */,
+			);
+			path = WalletConnectExtension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +173,9 @@
 			dependencies = (
 			);
 			name = CyberConnectSwiftExample;
+			packageProductDependencies = (
+				37F65AA42823B35400AD8C63 /* WalletConnectSwift */,
+			);
 			productName = CyberConnectSwiftExample;
 			productReference = 37A8652A2820E4FF0097751C /* CyberConnectSwiftExample.app */;
 			productType = "com.apple.product-type.application";
@@ -227,6 +248,9 @@
 				Base,
 			);
 			mainGroup = 37A865212820E4FF0097751C;
+			packageReferences = (
+				37F65AA32823B35400AD8C63 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
+			);
 			productRefGroup = 37A8652B2820E4FF0097751C /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -270,10 +294,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A865622820EDD50097751C /* Utils.swift in Sources */,
 				37A8655F2820E54F0097751C /* CyberConnect.swift in Sources */,
 				37A865322820E4FF0097751C /* ViewController.swift in Sources */,
 				37A8652E2820E4FF0097751C /* AppDelegate.swift in Sources */,
 				37A865302820E4FF0097751C /* SceneDelegate.swift in Sources */,
+				37F65AA82823B6AD00AD8C63 /* WalletConnect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +308,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				37A865602820E54F0097751C /* CyberConnect.swift in Sources */,
+				37F65AA92823B6AD00AD8C63 /* WalletConnect.swift in Sources */,
 				37A865452820E5020097751C /* CyberConnectSwiftExampleTests.swift in Sources */,
+				37A865632820EDD50097751C /* Utils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +644,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37F65AA32823B35400AD8C63 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/WalletConnect/WalletConnectSwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37F65AA42823B35400AD8C63 /* WalletConnectSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37F65AA32823B35400AD8C63 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
+			productName = WalletConnectSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 37A865222820E4FF0097751C /* Project object */;
 }
