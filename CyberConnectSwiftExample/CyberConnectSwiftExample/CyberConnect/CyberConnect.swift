@@ -20,7 +20,7 @@ enum SignResult: String, CaseIterable {
 }
 
 struct CyberConnect {
-    static let shareInstance = CyberConnect()
+    static let shared = CyberConnect()
     let walletConnectID = "5961a5f6f4ec01228870f2010153207d"
     
     func getAddress() {

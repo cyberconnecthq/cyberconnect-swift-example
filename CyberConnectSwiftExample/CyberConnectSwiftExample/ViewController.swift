@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         walletConnect.reconnectIfNeeded()
     }
     
-    @IBAction func button1Clicked(_ sender: Any) {
+    @IBAction func authrizeButtonClicked(_ sender: Any) {
         let connectionUrl = walletConnect.connect()
         let deepLinkUrl = "wc://wc?uri=\(connectionUrl)"
 
@@ -26,6 +26,40 @@ class ViewController: UIViewController {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
         }
+    }
+    
+    @IBAction func signButtonClicked(_ sender: Any) {
+        let authMessage = Utils.shared.getAuthorizeString(localPublicKeyPem: "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEjLfORxv/Ndc5Kwax4+3StpZHMCwBKpEe1EptDXxIhQVhV9LyU4rulho/u7DddtW+C7+y6fYe2kaYudmAzBIcbA==")
+        do {
+            try walletConnect.client.personal_sign(url: walletConnect.session.url, message: authMessage, account: walletConnect.session.walletInfo!.accounts[0]) {
+                [weak self] response in
+                self?.handleReponse(response, expecting: "Signature")
+            }
+        } catch {
+            print(error)
+        }
+    }
+    
+    private func handleReponse(_ response: Response, expecting: String) {
+        DispatchQueue.main.async {
+            if let error = response.error {
+                self.show(UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert))
+                return
+            }
+            do {
+                let result = try response.result(as: String.self)
+                self.show(UIAlertController(title: expecting, message: result, preferredStyle: .alert))
+            } catch {
+                self.show(UIAlertController(title: "Error",
+                                       message: "Unexpected response type error: \(error)",
+                                       preferredStyle: .alert))
+            }
+        }
+    }
+    
+    private func show(_ alert: UIAlertController) {
+        alert.addAction(UIAlertAction(title: "Close", style: .cancel))
+        self.present(alert, animated: true)
     }
 }
 

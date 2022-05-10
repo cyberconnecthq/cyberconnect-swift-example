@@ -16,13 +16,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-oJ-oFu">
-                                <rect key="frame" x="174" y="433" width="67" height="31"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-oJ-oFu" userLabel="Authorize">
+                                <rect key="frame" x="20" y="403" width="374" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Authorize"/>
                                 <connections>
-                                    <action selector="button1Clicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J1k-wD-jUE"/>
+                                    <action selector="authrizeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eio-L1-AC7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWj-b2-Q8n" userLabel="Sign">
+                                <rect key="frame" x="20" y="463" width="374" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Sign"/>
+                                <connections>
+                                    <action selector="signButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RSp-VA-U1U"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -32,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="71" y="65"/>
+            <point key="canvasLocation" x="69.565217391304358" y="64.955357142857139"/>
         </scene>
     </scenes>
     <resources>

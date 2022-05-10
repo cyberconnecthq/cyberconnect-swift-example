@@ -77,6 +77,7 @@ extension WalletConnect: ClientDelegate {
         // do nothing
     }
 
+    //save data here
     func client(_ client: Client, didConnect session: Session) {
         self.session = session
         let sessionData = try! JSONEncoder().encode(session)
@@ -93,4 +94,3 @@ extension WalletConnect: ClientDelegate {
         // do nothing
     }
 }
-

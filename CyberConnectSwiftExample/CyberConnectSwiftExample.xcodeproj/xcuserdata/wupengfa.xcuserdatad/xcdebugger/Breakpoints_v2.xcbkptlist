@@ -16,7 +16,295 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "26"
             endingLineNumber = "26"
-            landmarkName = "button1Clicked(_:)"
+            landmarkName = "authrizeButtonClicked(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EAF8F231-0FCF-4AC3-937A-F7DD2EA9D7E8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
+            landmarkName = "client(_:didConnect:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EAF8F231-0FCF-4AC3-937A-F7DD2EA9D7E8 - d0e7981d5e2fba1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExample.WalletConnect.client(_: WalletConnectSwift.Client, didConnect: WalletConnectSwift.Session) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "EAF8F231-0FCF-4AC3-937A-F7DD2EA9D7E8 - 83b2e244d0104c3e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExampleTests.WalletConnect.client(_: WalletConnectSwift.Client, didConnect: WalletConnectSwift.Session) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExampleTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "156">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "683C1C8B-211C-4301-80EF-BCF017D65BBD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "client(_:didConnect:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "683C1C8B-211C-4301-80EF-BCF017D65BBD - c3d74de129286c1b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExample.WalletConnect.client(_: WalletConnectSwift.Client, didConnect: WalletConnectSwift.WCURL) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "683C1C8B-211C-4301-80EF-BCF017D65BBD - 1f7e215095bde4b1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExampleTests.WalletConnect.client(_: WalletConnectSwift.Client, didConnect: WalletConnectSwift.WCURL) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExampleTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F5ED902-28D7-4A89-A917-B035C68D47B2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
+            landmarkName = "client(_:didFailToConnect:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1F5ED902-28D7-4A89-A917-B035C68D47B2 - b04f0bcb51f445d7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExample.WalletConnect.client(_: WalletConnectSwift.Client, didFailToConnect: WalletConnectSwift.WCURL) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "1F5ED902-28D7-4A89-A917-B035C68D47B2 - 75bd53477365b8a4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExampleTests.WalletConnect.client(_: WalletConnectSwift.Client, didFailToConnect: WalletConnectSwift.WCURL) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExampleTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "73"
+                  endingLineNumber = "73"
+                  offsetFromSymbolStart = "44">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "972DC5D5-BB8B-41A9-A541-114B6511F427"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "client(_:didDisconnect:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "972DC5D5-BB8B-41A9-A541-114B6511F427 - 407a6767982439c7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExample.WalletConnect.client(_: WalletConnectSwift.Client, didDisconnect: WalletConnectSwift.Session) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "180">
+               </Location>
+               <Location
+                  uuid = "972DC5D5-BB8B-41A9-A541-114B6511F427 - aa9a020f9bc665d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExampleTests.WalletConnect.client(_: WalletConnectSwift.Client, didDisconnect: WalletConnectSwift.Session) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExampleTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "90"
+                  endingLineNumber = "90"
+                  offsetFromSymbolStart = "180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4DE2266B-E279-4C35-936A-420F55A4C6AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "client(_:didUpdate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "4DE2266B-E279-4C35-936A-420F55A4C6AF - 19b4ebdc221fd4b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExample.WalletConnect.client(_: WalletConnectSwift.Client, didUpdate: WalletConnectSwift.Session) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExample"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  uuid = "4DE2266B-E279-4C35-936A-420F55A4C6AF - b2360c5139ecd8af"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CyberConnectSwiftExampleTests.WalletConnect.client(_: WalletConnectSwift.Client, didUpdate: WalletConnectSwift.Session) -&gt; ()"
+                  moduleName = "CyberConnectSwiftExampleTests"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/wupengfa/Desktop/CyberConnect/projects/cyberconnect-swift/CyberConnectSwiftExample/CyberConnectSwiftExample/WalletConnectExtension/WalletConnect.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "95"
+                  endingLineNumber = "95"
+                  offsetFromSymbolStart = "28">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EDAC5C6A-F0CB-4C97-BB1A-AC8AB3E3C549"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberConnectSwiftExample/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "45"
+            endingLineNumber = "45"
+            landmarkName = "handleReponse(_:expecting:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4F3E012E-7C98-4440-AF31-001AC1431B76"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberConnectSwiftExample/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "handleReponse(_:expecting:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "209BFD59-6F85-4239-9323-4D71E08D625D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CyberConnectSwiftExampleTests/CyberConnectSwiftExampleTests.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "testExample()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
