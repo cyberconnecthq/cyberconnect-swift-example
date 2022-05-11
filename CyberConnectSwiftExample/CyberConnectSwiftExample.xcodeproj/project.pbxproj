@@ -13,6 +13,8 @@
 		371A8321282A53DE006BDF6A /* SecurityKeyConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A831F282A53DE006BDF6A /* SecurityKeyConvertible.swift */; };
 		371A8323282A5426006BDF6A /* KeyStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A8322282A5426006BDF6A /* KeyStoreError.swift */; };
 		371A8324282A5426006BDF6A /* KeyStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A8322282A5426006BDF6A /* KeyStoreError.swift */; };
+		371A8326282A603B006BDF6A /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A8325282A603B006BDF6A /* NetworkRequestManager.swift */; };
+		371A8327282A603B006BDF6A /* NetworkRequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371A8325282A603B006BDF6A /* NetworkRequestManager.swift */; };
 		37A8652E2820E4FF0097751C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8652D2820E4FF0097751C /* AppDelegate.swift */; };
 		37A865302820E4FF0097751C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8652F2820E4FF0097751C /* SceneDelegate.swift */; };
 		37A865322820E4FF0097751C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A865312820E4FF0097751C /* ViewController.swift */; };
@@ -52,6 +54,7 @@
 		371A831C282A5356006BDF6A /* SecurityKeyStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityKeyStore.swift; sourceTree = "<group>"; };
 		371A831F282A53DE006BDF6A /* SecurityKeyConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecurityKeyConvertible.swift; sourceTree = "<group>"; };
 		371A8322282A5426006BDF6A /* KeyStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoreError.swift; sourceTree = "<group>"; };
+		371A8325282A603B006BDF6A /* NetworkRequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestManager.swift; sourceTree = "<group>"; };
 		37A8652A2820E4FF0097751C /* CyberConnectSwiftExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CyberConnectSwiftExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A8652D2820E4FF0097751C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37A8652F2820E4FF0097751C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +160,7 @@
 				371A831C282A5356006BDF6A /* SecurityKeyStore.swift */,
 				371A831F282A53DE006BDF6A /* SecurityKeyConvertible.swift */,
 				371A8322282A5426006BDF6A /* KeyStoreError.swift */,
+				371A8325282A603B006BDF6A /* NetworkRequestManager.swift */,
 			);
 			path = CyberConnect;
 			sourceTree = "<group>";
@@ -312,6 +316,7 @@
 				37A8652E2820E4FF0097751C /* AppDelegate.swift in Sources */,
 				37A865302820E4FF0097751C /* SceneDelegate.swift in Sources */,
 				371A8320282A53DE006BDF6A /* SecurityKeyConvertible.swift in Sources */,
+				371A8326282A603B006BDF6A /* NetworkRequestManager.swift in Sources */,
 				37F65AA82823B6AD00AD8C63 /* WalletConnect.swift in Sources */,
 				371A8323282A5426006BDF6A /* KeyStoreError.swift in Sources */,
 				371A831D282A5356006BDF6A /* SecurityKeyStore.swift in Sources */,
@@ -326,6 +331,7 @@
 				37F65AA92823B6AD00AD8C63 /* WalletConnect.swift in Sources */,
 				371A831E282A5356006BDF6A /* SecurityKeyStore.swift in Sources */,
 				37A865452820E5020097751C /* CyberConnectSwiftExampleTests.swift in Sources */,
+				371A8327282A603B006BDF6A /* NetworkRequestManager.swift in Sources */,
 				37A865632820EDD50097751C /* Utils.swift in Sources */,
 				371A8324282A5426006BDF6A /* KeyStoreError.swift in Sources */,
 				371A8321282A53DE006BDF6A /* SecurityKeyConvertible.swift in Sources */,
