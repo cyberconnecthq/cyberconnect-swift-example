@@ -10,23 +10,18 @@ import CryptoKit
 
 struct Utils {
     static let shared = Utils()
-    func generateCyberConnectSignKey(address: String) {
-        let privateKey = P256.Signing.PrivateKey()
-        let key = getKey(address: address)
-        do {
-            try SecurityKeyStore().storeKey(privateKey, label: key)
-        } catch {
-            print(error)
-        }
-    }
-
     func retriveCyberConnectSignKey(address: String) -> P256.Signing.PrivateKey? {
         let key = getKey(address: address)
         do {
             guard let result: P256.Signing.PrivateKey = try SecurityKeyStore().readKey(label: key) else {
-                return nil
+                //if can't find key in keychain, generate a new one
+                let privateKey = P256.Signing.PrivateKey()
+                try SecurityKeyStore().storeKey(privateKey, label: key)
+                print(privateKey.publicKey.pemRepresentation.pemRepresentationContent())
+                return privateKey
             }
             
+            print(result.publicKey.pemRepresentation.pemRepresentationContent())
             return result
         } catch {
             print(error)

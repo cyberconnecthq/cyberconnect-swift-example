@@ -16,27 +16,43 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-oJ-oFu" userLabel="Authorize">
-                                <rect key="frame" x="20" y="403" width="374" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Authorize"/>
-                                <connections>
-                                    <action selector="authrizeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eio-L1-AC7"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWj-b2-Q8n" userLabel="Sign">
-                                <rect key="frame" x="20" y="463" width="374" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Sign"/>
-                                <connections>
-                                    <action selector="signButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RSp-VA-U1U"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-mY-xRq">
+                                <rect key="frame" x="0.0" y="376.5" width="414" height="153"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-oJ-oFu" userLabel="Authorize">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Authorize"/>
+                                        <connections>
+                                            <action selector="authrizeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eio-L1-AC7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FWj-b2-Q8n" userLabel="Sign">
+                                        <rect key="frame" x="0.0" y="61" width="414" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Sign"/>
+                                        <connections>
+                                            <action selector="signButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RSp-VA-U1U"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YwA-74-E2F">
+                                        <rect key="frame" x="0.0" y="122" width="414" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="GetIdentity"/>
+                                        <connections>
+                                            <action selector="getIdentity:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zBG-P8-rJx"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fht-mY-xRq" secondAttribute="trailing" id="Lxv-vd-SSK"/>
+                            <constraint firstItem="Fht-mY-xRq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pl3-g2-uAo"/>
+                            <constraint firstItem="Fht-mY-xRq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ThO-ZT-K88"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

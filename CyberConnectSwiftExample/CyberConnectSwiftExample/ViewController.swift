@@ -7,6 +7,7 @@
 
 import UIKit
 import WalletConnectSwift
+import CryptoKit
 
 class ViewController: UIViewController {
     var walletConnect: WalletConnect!
@@ -29,14 +30,42 @@ class ViewController: UIViewController {
     }
     
     @IBAction func signButtonClicked(_ sender: Any) {
-        let authMessage = Utils.shared.getAuthorizeString(localPublicKeyPem: "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEjLfORxv/Ndc5Kwax4+3StpZHMCwBKpEe1EptDXxIhQVhV9LyU4rulho/u7DddtW+C7+y6fYe2kaYudmAzBIcbA==")
+        guard let walletInfo = walletConnect.session.walletInfo else {
+            print("wallet session error")
+            return
+        }
+        let address = walletInfo.accounts[0]
+        print(address)
+        guard let privateKey = Utils.shared.retriveCyberConnectSignKey(address: address) else {
+            print("generate local key fail")
+            return
+        }
+        
+        guard let publicKeyString: String = privateKey.publicKey.pemRepresentation.pemRepresentationContent() else {
+            print("invalid pem key string")
+            return
+        }
+        
+        let authMessage = Utils.shared.getAuthorizeString(localPublicKeyPem: publicKeyString)
         do {
-            try walletConnect.client.personal_sign(url: walletConnect.session.url, message: authMessage, account: walletConnect.session.walletInfo!.accounts[0]) {
+            try walletConnect.client.personal_sign(url: walletConnect.session.url, message: authMessage, account: address) {
                 [weak self] response in
                 self?.handleReponse(response, expecting: "Signature")
             }
         } catch {
             print(error)
+        }
+    }
+    
+    @IBAction func getIdentity(_ sender: Any) {
+        //you can get your wallet address by using this method, or you can save it in user defaults if you are using your own wallet
+        guard let walletInfo = walletConnect.session.walletInfo else {
+            print("wallet session error")
+            return
+        }
+        let address = walletInfo.accounts[0]
+        CyberConnect.shared.getIdentity(address: address) { data in
+            print(data)
         }
     }
     
@@ -48,6 +77,10 @@ class ViewController: UIViewController {
             }
             do {
                 let result = try response.result(as: String.self)
+                let address = self.walletConnect.session.walletInfo!.accounts[0]
+                CyberConnect.shared.registerKey(address: address, signature: result, network: .eth) { data in
+                    print(data)
+                }
                 self.show(UIAlertController(title: expecting, message: result, preferredStyle: .alert))
             } catch {
                 self.show(UIAlertController(title: "Error",
@@ -98,5 +131,18 @@ extension UIAlertController {
     static func showDisconnected(from controller: UIViewController) {
         let alert = UIAlertController(title: "Did disconnect", message: nil, preferredStyle: .alert)
         controller.present(alert.withCloseButton(), animated: true)
+    }
+}
+
+extension String {
+    func pemRepresentationContent()-> String? {
+        var components = self.components(separatedBy: "\n")
+        if components.count > 3 {
+            components.removeFirst()
+            components.removeLast()
+            let result = components.joined(separator: "\n")
+            return result
+        }
+        return nil
     }
 }

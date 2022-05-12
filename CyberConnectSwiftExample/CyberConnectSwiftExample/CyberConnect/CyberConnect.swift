@@ -47,4 +47,12 @@ struct CyberConnect {
     func batchConnect() {
         
     }
+    
+    func getIdentity(address: String, completion: @escaping CompleteionBlock) {
+        NetworkRequestManager().getIdentity(address: address, completion: completion)
+    }
+    
+    func registerKey(address: String, signature: String, network: NetworkType, completion: @escaping CompleteionBlock) {
+        NetworkRequestManager().resigterKey(address: address, signature: signature, network: network, completion: completion)
+    }
 }
