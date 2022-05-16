@@ -17,12 +17,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Fht-mY-xRq">
-                                <rect key="frame" x="0.0" y="346" width="414" height="214"/>
+                                <rect key="frame" x="0.0" y="315.5" width="414" height="275"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RtD-oJ-oFu" userLabel="Authorize">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Authorize"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Get Wallet Address"/>
                                         <connections>
                                             <action selector="authrizeButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eio-L1-AC7"/>
                                         </connections>
@@ -51,17 +51,37 @@
                                             <action selector="connectButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Lfz-1M-h57"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuQ-vC-c7M">
+                                        <rect key="frame" x="0.0" y="244" width="414" height="31"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Disconnect"/>
+                                        <connections>
+                                            <action selector="disConnectButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9JQ-D9-Gcy"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address: empty" textAlignment="right" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="haZ-um-mNR">
+                                <rect key="frame" x="20" y="44" width="374" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="haZ-um-mNR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="C2w-5L-BV4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Fht-mY-xRq" secondAttribute="trailing" id="Lxv-vd-SSK"/>
                             <constraint firstItem="Fht-mY-xRq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Pl3-g2-uAo"/>
                             <constraint firstItem="Fht-mY-xRq" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="ThO-ZT-K88"/>
+                            <constraint firstItem="haZ-um-mNR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bq5-Te-Rwk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="haZ-um-mNR" secondAttribute="trailing" constant="20" id="qXN-Zt-n1W"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="walletAddress" destination="haZ-um-mNR" id="9IY-aP-lMV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

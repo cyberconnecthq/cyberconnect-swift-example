@@ -11,7 +11,9 @@ import CryptoKit
 
 class ViewController: UIViewController {
     var walletConnect: WalletConnect!
+    var cyberConnectInstance: CyberConnect?
     
+    @IBOutlet weak var walletAddress: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         walletConnect = WalletConnect(delegate: self)
@@ -31,7 +33,7 @@ class ViewController: UIViewController {
     
     @IBAction func signButtonClicked(_ sender: Any) {
         guard let walletInfo = walletConnect.session.walletInfo else {
-            print("wallet session error")
+            needToConnectWalletFirst()
             return
         }
         let address = walletInfo.accounts[0]
@@ -60,22 +62,37 @@ class ViewController: UIViewController {
     @IBAction func getIdentity(_ sender: Any) {
         //you can get your wallet address by using this method, or you can save it in user defaults if you are using your own wallet
         guard let walletInfo = walletConnect.session.walletInfo else {
-            print("wallet session error")
+            needToConnectWalletFirst()
             return
         }
         let address = walletInfo.accounts[0]
-        CyberConnect.shared.getIdentity(address: address) { data in
+        cyberConnectInstance = CyberConnect(address: address)
+        cyberConnectInstance?.getIdentity(address: address) { data in
             print(data)
         }
     }
     
     @IBAction func connectButtonClicked(_ sender: Any) {
         guard let walletInfo = walletConnect.session.walletInfo else {
-            print("wallet session error")
+            needToConnectWalletFirst()
             return
         }
         let address = walletInfo.accounts[0]
-        CyberConnect.shared.connect(fromAddress: address, toAddress: "0xab7824a05ef372c95b9cfeb4a8be487a0d5d8ecb", alias: "", network: .eth) { data in
+        cyberConnectInstance = CyberConnect(address: address)
+        cyberConnectInstance?.connect(fromAddress: address, toAddress: "0xab7824a05ef372c95b9cfeb4a8be487a0d5d8ecb", alias: "", network: .eth) { data in
+            print(data)
+        }
+    }
+    
+    
+    @IBAction func disConnectButtonClicked(_ sender: Any) {
+        guard let walletInfo = walletConnect.session.walletInfo else {
+            needToConnectWalletFirst()
+            return
+        }
+        let address = walletInfo.accounts[0]
+        cyberConnectInstance = CyberConnect(address: address)
+        cyberConnectInstance?.disconnect(fromAddress: address, toAddress: "0xab7824a05ef372c95b9cfeb4a8be487a0d5d8ecb", alias: "", network: .eth) { data in
             print(data)
         }
     }
@@ -89,7 +106,7 @@ class ViewController: UIViewController {
             do {
                 let result = try response.result(as: String.self)
                 let address = self.walletConnect.session.walletInfo!.accounts[0]
-                CyberConnect.shared.registerKey(address: address, signature: result, network: .eth) { data in
+                self.cyberConnectInstance?.registerKey(address: address, signature: result, network: .eth) { data in
                     print(data)
                 }
                 self.show(UIAlertController(title: expecting, message: result, preferredStyle: .alert))
@@ -102,8 +119,18 @@ class ViewController: UIViewController {
     }
     
     private func show(_ alert: UIAlertController) {
-        alert.addAction(UIAlertAction(title: "Close", style: .cancel))
-        self.present(alert, animated: true)
+        onMainThread {
+            alert.addAction(UIAlertAction(title: "Close", style: .cancel))
+            self.present(alert, animated: true)
+        }
+    }
+    
+    private func needToConnectWalletFirst() {
+        show(UIAlertController(title: "Wallet address is empty", message: "you may need to get wallet address by click the Get Wallet Address button, you may also need to have metamask or some other wallet the WalletConnect supported on your device", preferredStyle: .alert))
+    }
+    
+    private func needToAuthorizeCyberConnect() {
+        show(UIAlertController(title: "Need your wallet to authorize Cyber Connect protocol", message: "Click Sign button and then open your wallet, you can see the authorize message in you wallet, if you can't see the alert in your wallet(this step may need more than one time try)", preferredStyle: .alert))
     }
 }
 
@@ -115,7 +142,16 @@ extension ViewController: WalletConnectDelegate {
     }
 
     func didConnect() {
+        guard let walletInfo = walletConnect.session.walletInfo else {
+            needToConnectWalletFirst()
+            return
+        }
+        let address = walletInfo.accounts[0]
+        onMainThread {
+            self.walletAddress.text = "Address: \(address)"
+        }
         
+        cyberConnectInstance = CyberConnect(address: address)
     }
 
     func didDisconnect() {

@@ -20,19 +20,13 @@ enum SignResult: String, CaseIterable {
 }
 
 struct CyberConnect {
-    static let shared = CyberConnect()
-    let walletConnectID = "5961a5f6f4ec01228870f2010153207d"
-    
-    func getAddress() {
-        
-    }
-    
+    var address: String
     func connect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
         NetworkRequestManager().connect(fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
     }
     
-    func disconnect() {
-        
+    func disconnect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
+        NetworkRequestManager().disconnect(fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
     }
     
     func alias() {

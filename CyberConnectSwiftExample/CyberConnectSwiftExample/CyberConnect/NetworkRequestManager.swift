@@ -12,10 +12,18 @@ import Security
 typealias CompleteionBlock = (_ data:NSDictionary)->Void;
 struct NetworkRequestManager {
     func connect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
+        connectOrDisconnect(isConnect: true, fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
+    }
+    
+    func disconnect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
+        connectOrDisconnect(isConnect: false, fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
+    }
+    
+    private func connectOrDisconnect(isConnect: Bool, fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
         do {
             let timestampDouble = NSDate().timeIntervalSince1970 * 1000
             let timestamp = UInt(Double(truncating: timestampDouble as NSNumber))
-            let operation = Operation(name: "follow", from: fromAddress, to: toAddress, namespace: "CyberConnect", network: network, alias: alias, timestamp: timestamp)
+            let operation = Operation(name: isConnect ? "follow" : "unfollow", from: fromAddress, to: toAddress, namespace: "CyberConnect", network: network, alias: alias, timestamp: timestamp)
             
             guard let privateKey =  Utils.shared.retriveCyberConnectSignKey(address: fromAddress) else {
                 print("can't get local key pairs")
@@ -29,7 +37,8 @@ struct NetworkRequestManager {
             let signKeyString = privateKey.publicKey.pemRepresentation.pemRepresentationContent()
             let variables = Variables(fromAddr: fromAddress, toAddr: toAddress, namespace: "CyberConnect", alias: alias, signature: signatureString, operation: operationString, signingKey: signKeyString, network: network)
             let input = Input(input: variables)
-            let operationInputData = OperationInputData(operationName: "connect", query: "mutation connect($input: UpdateConnectionInput!) {connect(input: $input) {result}}", variables: input)
+            let query = isConnect ? "mutation connect($input: UpdateConnectionInput!) {connect(input: $input) {result}}" : "mutation disconnect($input: UpdateConnectionInput!) {disconnect(input: $input) {result}}"
+            let operationInputData = OperationInputData(operationName: isConnect ? "connect" : "disconnect", query: query, variables: input)
             let jsonData = try JSONEncoder().encode(operationInputData)
             let requestString = String(data: jsonData, encoding: .utf8)!
             NetworkRequestManager().postRequest(body: requestString, completionHandler: compeletion)
