@@ -27,13 +27,8 @@ struct CyberConnect {
         
     }
     
-    func connect(targetAddress: String, alias: String = "", connectionType: ConnectionType = .follow) {
-        do {
-            
-        } catch {
-            
-            
-        }
+    func connect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
+        NetworkRequestManager().connect(fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
     }
     
     func disconnect() {
@@ -53,6 +48,6 @@ struct CyberConnect {
     }
     
     func registerKey(address: String, signature: String, network: NetworkType, completion: @escaping CompleteionBlock) {
-        NetworkRequestManager().resigterKey(address: address, signature: signature, network: network, completion: completion)
+        NetworkRequestManager().registerKey(address: address, signature: signature, network: network, completion: completion)
     }
 }

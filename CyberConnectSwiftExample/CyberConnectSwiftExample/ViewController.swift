@@ -69,6 +69,17 @@ class ViewController: UIViewController {
         }
     }
     
+    @IBAction func connectButtonClicked(_ sender: Any) {
+        guard let walletInfo = walletConnect.session.walletInfo else {
+            print("wallet session error")
+            return
+        }
+        let address = walletInfo.accounts[0]
+        CyberConnect.shared.connect(fromAddress: address, toAddress: "0xab7824a05ef372c95b9cfeb4a8be487a0d5d8ecb", alias: "", network: .eth) { data in
+            print(data)
+        }
+    }
+    
     private func handleReponse(_ response: Response, expecting: String) {
         DispatchQueue.main.async {
             if let error = response.error {
@@ -134,15 +145,3 @@ extension UIAlertController {
     }
 }
 
-extension String {
-    func pemRepresentationContent()-> String? {
-        var components = self.components(separatedBy: "\n")
-        if components.count > 3 {
-            components.removeFirst()
-            components.removeLast()
-            let result = components.joined(separator: "\n")
-            return result
-        }
-        return nil
-    }
-}

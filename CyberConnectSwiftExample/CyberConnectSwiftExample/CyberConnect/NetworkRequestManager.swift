@@ -7,10 +7,38 @@
 
 import Foundation
 import CryptoKit
+import Security
 
 typealias CompleteionBlock = (_ data:NSDictionary)->Void;
 struct NetworkRequestManager {
-    func resigterKey(address: String, signature: String, network: NetworkType, completion: @escaping CompleteionBlock) {
+    func connect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
+        do {
+            let timestampDouble = NSDate().timeIntervalSince1970 * 1000
+            let timestamp = UInt(Double(truncating: timestampDouble as NSNumber))
+            let operation = Operation(name: "follow", from: fromAddress, to: toAddress, namespace: "CyberConnect", network: network, alias: alias, timestamp: timestamp)
+            
+            guard let privateKey =  Utils.shared.retriveCyberConnectSignKey(address: fromAddress) else {
+                print("can't get local key pairs")
+                return
+            }
+            
+            let operationData = try JSONEncoder().encode(operation)
+            let signature = try privateKey.signature(for: operationData)
+            let signatureString = "0x\(signature.rawRepresentation.hexEncodedString())"
+            let operationString = String(data: operationData, encoding: .utf8)!
+            let signKeyString = privateKey.publicKey.pemRepresentation.pemRepresentationContent()
+            let variables = Variables(fromAddr: fromAddress, toAddr: toAddress, namespace: "CyberConnect", alias: alias, signature: signatureString, operation: operationString, signingKey: signKeyString, network: network)
+            let input = Input(input: variables)
+            let operationInputData = OperationInputData(operationName: "connect", query: "mutation connect($input: UpdateConnectionInput!) {connect(input: $input) {result}}", variables: input)
+            let jsonData = try JSONEncoder().encode(operationInputData)
+            let requestString = String(data: jsonData, encoding: .utf8)!
+            NetworkRequestManager().postRequest(body: requestString, completionHandler: compeletion)
+        } catch {
+            print(error)
+        }
+    }
+    
+    func registerKey(address: String, signature: String, network: NetworkType, completion: @escaping CompleteionBlock) {
         
         guard let privateKey =  Utils.shared.retriveCyberConnectSignKey(address: address) else {
             print("can't get local key pairs")
@@ -29,9 +57,7 @@ struct NetworkRequestManager {
         do {
             let jsonData = try JSONEncoder().encode(operationInputData)
             let requestString = String(data: jsonData, encoding: .utf8)!
-            NetworkRequestManager().postRequest(body: requestString) { data in
-                completion(data)
-            }
+            NetworkRequestManager().postRequest(body: requestString,completionHandler: completion)
         } catch { print(error) }
     }
     
@@ -41,9 +67,7 @@ struct NetworkRequestManager {
         do {
             let jsonData = try JSONEncoder().encode(operationData)
             let requestString = String(data: jsonData, encoding: .utf8)!
-            NetworkRequestManager().postRequest(body: requestString) { data in
-                completion(data)
-            }
+            NetworkRequestManager().postRequest(body: requestString, completionHandler: completion)
         } catch { print(error) }
     }
     
@@ -95,7 +119,7 @@ struct Variables: Codable {
     var first: UInt?
     var alias: String?
     var signature: String?
-    var operation: Operation?
+    var operation: String?
     var signingKey: String?
     var network: NetworkType?
     var message: String?
@@ -110,7 +134,7 @@ struct Operation: Codable {
     var from: String
     var to: String
     var namespace: String
-    var network: String
+    var network: NetworkType
     var alias: String
-    var timestamp: String
+    var timestamp: UInt
 }

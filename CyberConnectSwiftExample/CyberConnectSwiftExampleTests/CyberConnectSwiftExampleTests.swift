@@ -21,7 +21,12 @@ class CyberConnectSwiftExampleTests: XCTestCase {
 
     func testExample() throws {
         let address = "dasdsaddasddadsadasdas"
-        Utils.shared.generateCyberConnectSignKey(address: address)
+        do {
+            try SecurityKeyStore().deleteKey(label: address)
+        } catch {
+            print(error)
+        }
+        
         guard let privateKey: P256.Signing.PrivateKey = Utils.shared.retriveCyberConnectSignKey(address: address) else {
             XCTFail()
             return

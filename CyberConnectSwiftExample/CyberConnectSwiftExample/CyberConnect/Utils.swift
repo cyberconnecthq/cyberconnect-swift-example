@@ -47,3 +47,28 @@ func onMainThread(_ closure: @escaping () -> Void) {
         }
     }
 }
+
+extension String {
+    func pemRepresentationContent()-> String? {
+        var components = self.components(separatedBy: "\n")
+        if components.count > 3 {
+            components.removeFirst()
+            components.removeLast()
+            let result = components.joined(separator: "\n")
+            return result
+        }
+        return nil
+    }
+}
+
+extension Data {
+    struct HexEncodingOptions: OptionSet {
+        let rawValue: Int
+        static let upperCase = HexEncodingOptions(rawValue: 1 << 0)
+    }
+
+    func hexEncodedString(options: HexEncodingOptions = []) -> String {
+        let format = options.contains(.upperCase) ? "%02hhX" : "%02hhx"
+        return self.map { String(format: format, $0) }.joined()
+    }
+}
