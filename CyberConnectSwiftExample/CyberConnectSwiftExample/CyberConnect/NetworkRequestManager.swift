@@ -11,7 +11,7 @@ import Security
 
 typealias CompleteionBlock = (_ data:NSDictionary)->Void;
 struct NetworkRequestManager {
-    func connect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
+    func connect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, connectType: ConnectionType, compeletion: @escaping CompleteionBlock) {
         connectOrDisconnect(isConnect: true, fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
     }
     
@@ -19,11 +19,11 @@ struct NetworkRequestManager {
         connectOrDisconnect(isConnect: false, fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
     }
     
-    private func connectOrDisconnect(isConnect: Bool, fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
+    private func connectOrDisconnect(isConnect: Bool, fromAddress: String, toAddress: String, alias: String, network: NetworkType, connectType: ConnectionType = .follow, compeletion: @escaping CompleteionBlock) {
         do {
             let timestampDouble = NSDate().timeIntervalSince1970 * 1000
             let timestamp = UInt(Double(truncating: timestampDouble as NSNumber))
-            let operation = Operation(name: isConnect ? "follow" : "unfollow", from: fromAddress, to: toAddress, namespace: "CyberConnect", network: network, alias: alias, timestamp: timestamp)
+            let operation = Operation(name: isConnect ? connectType.rawValue : "unfollow", from: fromAddress, to: toAddress, namespace: "CyberConnect", network: network, alias: alias, timestamp: timestamp)
             
             guard let privateKey =  Utils.shared.retriveCyberConnectSignKey(address: fromAddress) else {
                 print("can't get local key pairs")

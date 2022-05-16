@@ -7,11 +7,11 @@
 
 import Foundation
 enum ConnectionType: String, CaseIterable {
-    case follow = "FOLLOW"
-    case like = "LIKE"
-    case report = "REPORT"
-    case watch = "WATCH"
-    case vote = "VOTE"
+    case follow = "follow"
+    case like = "like"
+    case report = "report"
+    case watch = "watch"
+    case vote = "vote"
 }
 
 enum SignResult: String, CaseIterable {
@@ -21,8 +21,8 @@ enum SignResult: String, CaseIterable {
 
 struct CyberConnect {
     var address: String
-    func connect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
-        NetworkRequestManager().connect(fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
+    func connect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, connectType: ConnectionType, compeletion: @escaping CompleteionBlock) {
+        NetworkRequestManager().connect(fromAddress: fromAddress, toAddress: toAddress, alias: alias, network: network, connectType: connectType, compeletion: compeletion)
     }
     
     func disconnect(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
