@@ -11,6 +11,18 @@ import Security
 
 typealias CompleteionBlock = (_ data:NSDictionary)->Void;
 struct NetworkRequestManager {
+    
+    func getBatchConnections(fromAddress: String, toAddresses: [String], compeletion: @escaping CompleteionBlock) {
+        
+        let variable = Variables(from: fromAddress, to: toAddresses)
+        let operationData = OperationData(operationName: "GetBatchConnections", query: "query GetBatchConnections($from: String!, $to: [String!]!) {\n  connections(fromAddr: $from, toAddrList: $to, network: ETH) {\n    toAddr\n    followStatus {\n      isFollowing\n      isFollowed\n      __typename\n    }\n    __typename\n  }\n}\n", variables: variable)
+        do {
+            let jsonData = try JSONEncoder().encode(operationData)
+            let requestString = String(data: jsonData, encoding: .utf8)!
+            NetworkRequestManager().postRequest(body: requestString, completionHandler: compeletion)
+        } catch { print(error) }
+    }
+    
     func setAlias(fromAddress: String, toAddress: String, alias: String, network: NetworkType, compeletion: @escaping CompleteionBlock) {
         do {
             let timestampDouble = NSDate().timeIntervalSince1970 * 1000
@@ -151,6 +163,8 @@ enum NetworkType: String, CaseIterable, Codable {
 struct Variables: Codable {
     var fromAddr: String?
     var toAddr: String?
+    var from: String?
+    var to: [String]?
     var namespace: String?
     var address: String?
     var first: UInt?

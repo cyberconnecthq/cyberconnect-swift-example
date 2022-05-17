@@ -33,8 +33,8 @@ struct CyberConnect {
         NetworkRequestManager().setAlias(fromAddress: address, toAddress: toAddress, alias: alias, network: network, compeletion: compeletion)
     }
     
-    func batchConnect() {
-        
+    func getBatchConnections(toAddresses: [String], compeletion: @escaping CompleteionBlock) {
+        NetworkRequestManager().getBatchConnections(fromAddress: address, toAddresses: toAddresses, compeletion: compeletion)
     }
     
     func getIdentity(completion: @escaping CompleteionBlock) {
