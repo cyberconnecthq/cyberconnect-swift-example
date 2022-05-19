@@ -10,6 +10,15 @@
       }
     },
     {
+      "identity" : "cyberconnect-swift-lib",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cyberconnecthq/cyberconnect-swift-lib.git",
+      "state" : {
+        "revision" : "05bac7c35f29103921fe646ec415d3e2c3b2a7c9",
+        "version" : "1.0.10"
+      }
+    },
+    {
       "identity" : "starscream",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/daltoniam/Starscream.git",

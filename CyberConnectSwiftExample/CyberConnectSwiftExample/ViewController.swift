@@ -8,6 +8,7 @@
 import UIKit
 import WalletConnectSwift
 import CryptoKit
+import CyberConnect
 
 class ViewController: UIViewController {
     var walletConnect: WalletConnect!
