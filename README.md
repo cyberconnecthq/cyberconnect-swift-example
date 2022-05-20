@@ -26,7 +26,7 @@ https://user-images.githubusercontent.com/10152008/169455548-97e65405-7632-4019-
 
 Want to know more APIs CyberConnect supported please refer to: [cyberconnect-swift](https://github.com/cyberconnecthq/cyberconnect-swift-lib)
 
-###About WalletConnect
+### About WalletConnect
 WalletConnect is a tool to use your wallet function based on universal link or QR code, many mainstream wallets is supported for now.
 
 ⚠️ If you have your own wallet,of course you can sign your message with your own wallet, should be easier, and have better user experience. Cause WalletConnect use websocket to check the status of signature, not so stable for now and sometimes you may need to active wallet app back and forth to show the signature prompt(at least for metamask it behave like this, maybe it's a bug of metamask, but it works anyway)
