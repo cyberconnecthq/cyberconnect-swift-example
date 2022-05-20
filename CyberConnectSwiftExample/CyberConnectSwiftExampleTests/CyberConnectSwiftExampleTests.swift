@@ -8,7 +8,6 @@
 import XCTest
 @testable import CyberConnectSwiftExample
 import CryptoKit
-import CyberConnect
 
 class CyberConnectSwiftExampleTests: XCTestCase {
 
