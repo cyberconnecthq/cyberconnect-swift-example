@@ -39,7 +39,8 @@ class ViewController: UIViewController {
         }
         let address = walletInfo.accounts[0]
         print(address)
-        guard let privateKey = Utils.shared.retriveCyberConnectSignKey(address: address) else {
+        
+        guard let privateKey = cyberConnectInstance?.retriveCyberConnectSignKey(address: address) else {
             print("generate local key fail")
             return
         }
@@ -49,7 +50,10 @@ class ViewController: UIViewController {
             return
         }
         
-        let authMessage = Utils.shared.getAuthorizeString(localPublicKeyPem: publicKeyString)
+        guard let authMessage: String = cyberConnectInstance?.getAuthorizeString(localPublicKeyPem: publicKeyString) else {
+            return
+        }
+        
         do {
             try walletConnect.client.personal_sign(url: walletConnect.session.url, message: authMessage, account: address) {
                 [weak self] response in

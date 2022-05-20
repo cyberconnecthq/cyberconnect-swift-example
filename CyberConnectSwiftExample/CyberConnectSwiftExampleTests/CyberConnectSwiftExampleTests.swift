@@ -8,6 +8,7 @@
 import XCTest
 @testable import CyberConnectSwiftExample
 import CryptoKit
+import CyberConnect
 
 class CyberConnectSwiftExampleTests: XCTestCase {
 
@@ -21,17 +22,10 @@ class CyberConnectSwiftExampleTests: XCTestCase {
 
     func testExample() throws {
         let address = "dasdsaddasddadsadasdas"
-        do {
-            try SecurityKeyStore().deleteKey(label: address)
-        } catch {
-            print(error)
+        let cyberConnect = CyberConnect(address: address)
+        if let privateKey: P256.Signing.PrivateKey = cyberConnect.retriveCyberConnectSignKey(address: address) {
+            print(privateKey.publicKey.pemRepresentation)
         }
-        
-        guard let privateKey: P256.Signing.PrivateKey = Utils.shared.retriveCyberConnectSignKey(address: address) else {
-            XCTFail()
-            return
-        }
-        print(privateKey.publicKey.pemRepresentation)
     }
 
     func testPerformanceExample() throws {
