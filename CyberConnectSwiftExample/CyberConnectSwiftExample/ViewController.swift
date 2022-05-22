@@ -73,7 +73,8 @@ class ViewController: UIViewController {
         let address = walletInfo.accounts[0]
         cyberConnectInstance = CyberConnect(address: address)
         cyberConnectInstance?.getIdentity() { data in
-            print(data)
+            let dataString = String(decoding: data, as: UTF8.self)
+            self.show(UIAlertController(title: "Identity", message: dataString, preferredStyle: .alert))
         }
     }
     
@@ -85,7 +86,8 @@ class ViewController: UIViewController {
         let address = walletInfo.accounts[0]
         cyberConnectInstance = CyberConnect(address: address)
         cyberConnectInstance?.connect(toAddress: "0xdb7685f8bce990f5c21720b803a7bdc5b94360d2", alias: "", network: .eth) { data in
-            print(data)
+            let dataString = String(decoding: data, as: UTF8.self)
+            self.show(UIAlertController(title: "Connect", message: dataString, preferredStyle: .alert))
         }
     }
     
@@ -97,7 +99,8 @@ class ViewController: UIViewController {
         let address = walletInfo.accounts[0]
         cyberConnectInstance = CyberConnect(address: address)
         cyberConnectInstance?.alias(toAddress: "0xdb7685f8bce990f5c21720b803a7bdc5b94360d2", alias: "What's happening????", network: .eth) { data in
-            print(data)
+            let dataString = String(decoding: data, as: UTF8.self)
+            self.show(UIAlertController(title: "Alias", message: dataString, preferredStyle: .alert))
         }
     }
     
@@ -109,7 +112,8 @@ class ViewController: UIViewController {
         let address = walletInfo.accounts[0]
         cyberConnectInstance = CyberConnect(address: address)
         cyberConnectInstance?.disconnect(toAddress: "0xab7824a05ef372c95b9cfeb4a8be487a0d5d8ecb", alias: "", network: .eth) { data in
-            print(data)
+            let dataString = String(decoding: data, as: UTF8.self)
+            self.show(UIAlertController(title: "Disconnect", message: dataString, preferredStyle: .alert))
         }
     }
     
@@ -123,7 +127,8 @@ class ViewController: UIViewController {
                 let result = try response.result(as: String.self)
                 let address = self.walletConnect.session.walletInfo!.accounts[0]
                 self.cyberConnectInstance?.registerKey(signature: result, network: .eth) { data in
-                    print(data)
+                    let dataString = String(decoding: data, as: UTF8.self)
+                    self.show(UIAlertController(title: "Signature", message: dataString, preferredStyle: .alert))
                 }
                 self.show(UIAlertController(title: expecting, message: result, preferredStyle: .alert))
             } catch {
