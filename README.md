@@ -22,7 +22,7 @@ cyberconnect.registerKey(signature: signature, network: .eth) { data in
 
 Here is a demo Video:
 
-https://user-images.githubusercontent.com/10152008/169455548-97e65405-7632-4019-8877-161d81f27f92.MP4
+https://user-images.githubusercontent.com/10152008/170657498-c66020b1-d1ea-43b3-a398-4574d4d6796e.MP4
 
 Want to know more APIs CyberConnect supported please refer to: [cyberconnect-swift](https://github.com/cyberconnecthq/cyberconnect-swift-lib)
 
