@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		371A8328283107FF006BDF6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A865312820E4FF0097751C /* ViewController.swift */; };
-		3765B1BD283609E5005153F7 /* CyberConnect in Frameworks */ = {isa = PBXBuildFile; productRef = 3765B1BC283609E5005153F7 /* CyberConnect */; };
 		37A8652E2820E4FF0097751C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8652D2820E4FF0097751C /* AppDelegate.swift */; };
 		37A865302820E4FF0097751C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8652F2820E4FF0097751C /* SceneDelegate.swift */; };
 		37A865322820E4FF0097751C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A865312820E4FF0097751C /* ViewController.swift */; };
@@ -21,6 +20,7 @@
 		37F65AA52823B35400AD8C63 /* WalletConnectSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37F65AA42823B35400AD8C63 /* WalletConnectSwift */; };
 		37F65AA82823B6AD00AD8C63 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F65AA72823B6AD00AD8C63 /* WalletConnect.swift */; };
 		37F65AA92823B6AD00AD8C63 /* WalletConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37F65AA72823B6AD00AD8C63 /* WalletConnect.swift */; };
+		DE9FF939288CD69E0031E448 /* CyberConnect in Frameworks */ = {isa = PBXBuildFile; productRef = DE9FF938288CD69E0031E448 /* CyberConnect */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37F65AA52823B35400AD8C63 /* WalletConnectSwift in Frameworks */,
-				3765B1BD283609E5005153F7 /* CyberConnect in Frameworks */,
+				DE9FF939288CD69E0031E448 /* CyberConnect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -162,7 +162,7 @@
 			name = CyberConnectSwiftExample;
 			packageProductDependencies = (
 				37F65AA42823B35400AD8C63 /* WalletConnectSwift */,
-				3765B1BC283609E5005153F7 /* CyberConnect */,
+				DE9FF938288CD69E0031E448 /* CyberConnect */,
 			);
 			productName = CyberConnectSwiftExample;
 			productReference = 37A8652A2820E4FF0097751C /* CyberConnectSwiftExample.app */;
@@ -238,7 +238,7 @@
 			mainGroup = 37A865212820E4FF0097751C;
 			packageReferences = (
 				37F65AA32823B35400AD8C63 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */,
-				3765B1BB283609E5005153F7 /* XCRemoteSwiftPackageReference "cyberconnect-swift-lib" */,
+				DE9FF937288CD69D0031E448 /* XCRemoteSwiftPackageReference "cyberconnect-swift-lib" */,
 			);
 			productRefGroup = 37A8652B2820E4FF0097751C /* Products */;
 			projectDirPath = "";
@@ -632,14 +632,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		3765B1BB283609E5005153F7 /* XCRemoteSwiftPackageReference "cyberconnect-swift-lib" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/cyberconnecthq/cyberconnect-swift-lib.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.2;
-			};
-		};
 		37F65AA32823B35400AD8C63 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WalletConnect/WalletConnectSwift.git";
@@ -648,18 +640,26 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		DE9FF937288CD69D0031E448 /* XCRemoteSwiftPackageReference "cyberconnect-swift-lib" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cyberconnecthq/cyberconnect-swift-lib.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		3765B1BC283609E5005153F7 /* CyberConnect */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 3765B1BB283609E5005153F7 /* XCRemoteSwiftPackageReference "cyberconnect-swift-lib" */;
-			productName = CyberConnect;
-		};
 		37F65AA42823B35400AD8C63 /* WalletConnectSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 37F65AA32823B35400AD8C63 /* XCRemoteSwiftPackageReference "WalletConnectSwift" */;
 			productName = WalletConnectSwift;
+		};
+		DE9FF938288CD69E0031E448 /* CyberConnect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DE9FF937288CD69D0031E448 /* XCRemoteSwiftPackageReference "cyberconnect-swift-lib" */;
+			productName = CyberConnect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

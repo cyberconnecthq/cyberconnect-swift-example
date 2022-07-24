@@ -125,12 +125,10 @@ class ViewController: UIViewController {
             }
             do {
                 let result = try response.result(as: String.self)
-                let address = self.walletConnect.session.walletInfo!.accounts[0]
                 self.cyberConnectInstance?.registerKey(signature: result, network: .eth) { data in
                     let dataString = String(decoding: data, as: UTF8.self)
-                    self.show(UIAlertController(title: "Signature", message: dataString, preferredStyle: .alert))
+                    self.show(UIAlertController(title: "Signature", message: "Signature: \(result)-----Response:\(dataString)", preferredStyle: .alert))
                 }
-                self.show(UIAlertController(title: expecting, message: result, preferredStyle: .alert))
             } catch {
                 self.show(UIAlertController(title: "Error",
                                        message: "Unexpected response type error: \(error)",

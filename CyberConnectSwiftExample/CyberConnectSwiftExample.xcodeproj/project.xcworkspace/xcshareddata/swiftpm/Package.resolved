@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/cyberconnecthq/cyberconnect-swift-lib.git",
       "state" : {
-        "revision" : "7b33b42f58d9d61a242f9b5899d456f824aaea74",
-        "version" : "1.0.11"
+        "branch" : "main",
+        "revision" : "335f7c92be244384a610ba8d9a30f50e1ec53eb2"
       }
     },
     {
